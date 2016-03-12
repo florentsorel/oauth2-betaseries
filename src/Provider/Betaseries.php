@@ -128,7 +128,7 @@ class Betaseries extends AbstractProvider
     protected function getAuthorizationHeaders($token = null)
     {
         return [
-            'X-BetaSeries-Token' => $token->getToken()
+            'X-BetaSeries-Token' => (string) $token->getToken()
         ];
     }
 
