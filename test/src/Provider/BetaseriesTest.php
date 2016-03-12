@@ -84,8 +84,8 @@ class BetaseriesTest extends \PHPUnit_Framework_TestCase
         $token = $this->provider->getAccessToken('authorization_code', ['code' => 'mock_authorization_code']);
         $user = $this->provider->getResourceOwner($token);
         $this->assertEquals($userId, $user->getId());
-        $this->assertEquals($userId, $user->toArray()['member']['id']);
+        $this->assertEquals($userId, $user->toArray()['id']);
         $this->assertEquals($login, $user->getUsername());
-        $this->assertEquals($login, $user->toArray()['member']['login']);
+        $this->assertEquals($login, $user->toArray()['login']);
     }
 }

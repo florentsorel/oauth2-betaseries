@@ -13,7 +13,7 @@ use Psr\Http\Message\ResponseInterface;
 class Betaseries extends AbstractProvider
 {
 
-    const ACCESS_TOKEN_RESOURCE_OWNER_ID = 'token';
+    const ACCESS_TOKEN_RESOURCE_OWNER_ID = 'user.id';
 
     use ArrayAccessorTrait;
 
@@ -82,9 +82,6 @@ class Betaseries extends AbstractProvider
     /**
      * Prepares an parsed access token response for a grant.
      *
-     * Custom mapping of expiration, etc should be done here. Always call the
-     * parent method when overloading this method.
-     *
      * @param  mixed $result
      * @return array
      */
@@ -93,10 +90,11 @@ class Betaseries extends AbstractProvider
         if ($this->getAccessTokenResourceOwnerId() !== null) {
             $result['access_token'] = $this->getValueByKey(
                 $result,
-                $this->getAccessTokenResourceOwnerId()
+                'token'
             );
         }
-        return $result;
+
+        return parent::prepareAccessTokenResponse($result);
     }
 
     /**
