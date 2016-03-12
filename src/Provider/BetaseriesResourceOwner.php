@@ -28,7 +28,7 @@ class BetaseriesResourceOwner implements ResourceOwnerInterface
      */
     public function getId()
     {
-        return $this->response['member']['id'] ?: null;
+        return $this->response['id'] ?: null;
     }
 
     /**
@@ -38,7 +38,7 @@ class BetaseriesResourceOwner implements ResourceOwnerInterface
      */
     public function getUsername()
     {
-        return $this->response['member']['login'] ?: null;
+        return $this->response['login'] ?: null;
     }
 
     /**

@@ -141,6 +141,6 @@ class Betaseries extends AbstractProvider
      */
     protected function createResourceOwner(array $response, AccessToken $token)
     {
-        return new BetaseriesResourceOwner($response);
+        return new BetaseriesResourceOwner($response['member']);
     }
 }
